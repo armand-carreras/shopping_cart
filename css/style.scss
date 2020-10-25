@@ -1,0 +1,288 @@
+.cart::-webkit-scrollbar{
+  width: 0.25rem;
+}
+.cart::-webkit-scrollbar-track{
+  background: #1e1e24;
+}
+.cart::-webkit-scrollbar-thumb{
+  background: greenyellow;
+}
+//***********************************************************************//
+//*********************** STRUCTURE STYLE *******************************//
+//***********************************************************************//
+body{
+  margin:0;
+  padding:0;
+  justify-content: center;
+  align-items: center;
+}
+#cuerpo{ //layout de la pagina
+  width:100%;
+  height:100vh;
+  display: grid;
+  grid-template-areas: 
+  "HEAD HEAD"
+  "CART SUMARY"
+  "FOOT FOOT";
+  grid-template-rows: 1.5fr 8fr 1fr;
+  grid-template-columns: 4fr  1fr;
+  gap: 2rem;
+  background-color: antiquewhite;
+}
+
+header{grid-area: HEAD;}
+.cart{grid-area: CART;}
+.sumary{grid-area:SUMARY;}
+footer{grid-area: FOOT;}
+
+header,.cart,.summary,footer{ //disponemos las cajas en FLEX
+  display: flex;
+  text-align: center;
+  background-color: dimgray;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+header,footer{
+  flex-direction: row;  //header y footer FELX en linea
+  box-shadow: none;
+  color: hsla(225,15,35,1);
+  background: hsla(225,15,21,1);
+  border: 1px dashed hsla(225,15,30,1);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  word-spacing: 1rem;
+  font-weight: 800;
+}
+.cart,.sumary{    //cart y sumary en columna CAJA DE LOS PRODUCTOS
+  //align-content: flex-start;
+  flex-flow: column;
+  align-items: flex-start;
+  overflow: auto;
+}
+header{ //posicionamiento de items de HEADER
+
+}
+
+
+// *************************************************************//
+//***************** CARTA DE PRODUCTO **************************//
+//**************************************************************//
+
+
+.card {
+ 
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+
+}
+
+.price {
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+}
+
+img{
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px #707070;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.card button {
+  border-image: linear-gradient(#360154, #d442d5) 30;
+  background: #18d331;
+  box-shadow: 0px 0px 8px #59c444;
+  border-radius: 8px;
+  border: 2px solid;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+  transition: all 0.5s;
+
+}
+
+.card button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.card button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.card button:hover span {
+  padding-right: 25px;
+}
+
+.card button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+p{
+  padding:10px;
+}
+
+.flip-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+  border-radius: 20px;
+}
+
+.flip-card-inner {
+  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 20px;
+}
+
+.flip-card-back {
+  box-shadow: 0px 0px 12px #000000;
+  border-radius: 8px;
+  border: 2px solid;
+  background-image: url("fondo.jpg");
+  color: white;
+  transform: rotateY(180deg);
+  max-height: 350px;
+}
+/*# sourceMappingURL=style.css.map */
+
+//******************************************************************//
+//******************** CARTA PRODUCTO HORIZONTAL********************//
+//******************************************************************//
+
+
+
+// p,img,div,button{
+//   margin:0;
+//   // justify-content:center;
+//   // align-items: center;
+//   font-size: 2rem;
+// }
+// .contenedorProducto {
+//         margin:auto;        
+//         margin-top: 0.5rem;
+//         padding:0;
+//         width: 98%;
+//         height: 600px;
+//         display: grid;
+//         background:linear-gradient(45deg, beige,cyan);
+//         border-radius:1em;
+//         overflow: hidden;
+//         border:3px solid green;
+//           grid-template-areas: 
+//           "img  nombre  nombre category category "
+//           "img  tag   tag   plusminus    price"
+//           "img  tag   tag  total   add";
+//           grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+//           grid-template-rows: 0.7fr 0.7fr 0.7fr;
+//         img{
+//           grid-area:img;
+//           align-self: center;
+//           justify-self: center;
+//           width: 32px;
+//           height: 32px;
+//           border:2px solid brown;
+//         }
+//         .nombre {
+//           border:2px solid violet;
+//           grid-area:nombre;
+//         }
+//         .category {
+//           border:2px solid brown;
+//           grid-area:category;
+//         }
+//         .totalPrice {
+//           border:2px solid blue;
+//           grid-area:total;
+//         }
+//         .tags {
+//           border:3px solid green;
+//         }
+//         .addButton {
+//           grid-area: add;
+//           img{
+//             width:10px;
+//             height:auto;
+//           }
+//         }
+//         .itemPrice{
+//           margin:auto;
+//           grid-area: price;
+//           border:1px solid black;
+//         }
+//         .quantityDiv {
+//           grid-area:plusminus;
+//           display:flex;
+//           flex-direction:row;
+//           justify-content:center;
+//           align-items:center;
+
+//           .minusQuantity,.plusQuantity{
+//                   margin: 1rem;
+//                   box-shadow: 0px 0px 20px 0px #007bff;
+//                   background-color:transparent;
+//                   border-radius:36px;
+//                   border:1px solid #ffffff;
+//                   display:inline-block;
+//                   cursor:pointer;
+//                   font-family:"Courier New";
+//                   font-size:2rem;
+//                   padding:0.3rem 0.8rem;
+//                   text-decoration:none;
+//                   text-shadow:0px 1px 0px #08122b;
+//           }
+//           .minusQuantity:hover,.plusQuantity:hover {
+//                   background-color:transparent;
+//           }
+//           .minusQuantity:active,.plusQuantity:active {
+//                   position:relative;
+//                   top:1px;
+//           }
+          
+//           .quantityNumber {
+//             width:2rem;
+//             height: 2rem;
+//             font-size:2rem;
+//           }
+//         }
+// }
