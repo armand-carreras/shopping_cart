@@ -1,14 +1,19 @@
 @charset "UTF-8";
 .cart::-webkit-scrollbar {
-  width: 0.25rem;
+  width: 10px;
+  height: 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
 }
 
 .cart::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background-color: #F5F5F5;
+  border-radius: 10px;
 }
 
 .cart::-webkit-scrollbar-thumb {
-  background: greenyellow;
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #616161), color-stop(0.72, #353535), color-stop(0.86, #1f1f1f));
 }
 
 body {
@@ -26,7 +31,7 @@ body {
   grid-template-rows: 1.5fr 8fr 1fr;
   grid-template-columns: 4fr 1fr;
   gap: 2rem;
-  background-color: antiquewhite;
+  background-image: url("../assets/peak-5645235_1920.jpg");
 }
 
 header {
@@ -45,20 +50,57 @@ footer {
   grid-area: FOOT;
 }
 
-header, .cart, .summary, footer {
+.cart {
   display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow: auto;
   text-align: center;
-  background-color: dimgray;
-  border: 1px solid black;
+}
+
+.cart {
+  margin-left: 20px;
+}
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  overflow-x: hidden;
+  margin-right: 10px;
   border-radius: 10px;
+  transition: opacity 2s linear, max-height 0s linear 0s;
+  opacity: 1;
+  background: rgba(36, 36, 36, 0.7);
+  max-height: 100%;
+  max-width: 200px;
+  min-width: 200px;
+  color: white;
+  border: 2px solid white;
+  box-shadow: 0px 0px 18px 0px rgba(54, 54, 54, 0.57);
+  box-shadow: 0px 0px 18px 0px rgba(12, 12, 12, 0.57);
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.57);
+}
+
+.summary.hidden {
+  opacity: 0;
+  transition: opacity 2s linear, max-height 0s linear 2s;
+  max-width: 200px;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.underlinebottom {
+  border-bottom: 3px solid white;
+  width: 300px;
 }
 
 header, footer {
-  flex-direction: row;
-  box-shadow: none;
-  color: #4c5367;
-  background: #2e323e;
-  border: 1px dashed #414758;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00eeff;
+  background: rgba(40, 43, 52, 0.705);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -66,10 +108,34 @@ header, footer {
   font-weight: 800;
 }
 
-.cart, .sumary {
-  flex-flow: column;
-  align-items: flex-start;
-  overflow: auto;
+header {
+  justify-content: space-around;
+  box-shadow: 0px 0px 12px #000000;
+  border: 2px solid #414758;
+}
+header p {
+  margin: 0;
+  font-family: "Bangers", cursive;
+  font-size: 5rem;
+  color: rgba(0, 238, 255, 0.2);
+  -webkit-text-stroke: 2px white;
+}
+
+.carrito {
+  text-decoration: none;
+  margin-left: 50px;
+  width: 4rem;
+  height: 4rem;
+  font-size: 5rem;
+  background: url("../assets/baseline_add_shopping_cart_white_48dp.png") no-repeat center;
+  background-size: cover;
+  display: block;
+}
+
+.carrito:hover {
+  margin-left: 50px;
+  font-size: 20px;
+  opacity: 0.8;
 }
 
 .card {
@@ -77,6 +143,11 @@ header, footer {
   margin: auto;
   text-align: center;
   font-family: arial;
+  padding: 20px;
+  background: rgba(46, 46, 46, 0.5);
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-left: 20px;
 }
 
 .price {
@@ -85,10 +156,10 @@ header, footer {
 }
 
 img {
-  border-radius: 20px;
-  box-shadow: 0px 0px 8px #707070;
   border-radius: 8px;
-  border: 1px solid;
+  border: 1px solid black;
+  min-height: 320px;
+  max-height: 320px;
 }
 
 .card button {
@@ -137,7 +208,6 @@ p {
 }
 
 .flip-card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
   width: 300px;
   height: 350px;
@@ -168,9 +238,7 @@ p {
 }
 
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
-  border-radius: 20px;
+  color: transparent;
 }
 
 .flip-card-back {
@@ -180,9 +248,286 @@ p {
   background-image: url("fondo.jpg");
   color: white;
   transform: rotateY(180deg);
-  max-height: 350px;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+.tags {
+  font-size: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
+.tarjetaAside {
+  width: 100%;
+  height: 20%;
+  display: grid;
+  grid-template-areas: "img        nombre" "img        categoria" "img        amount" "totalPrice totalPrice";
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
+}
+
+img {
+  grid-area: img;
+}
+
+.itemName {
+  grid-area: nombre;
+}
+
+.itemType {
+  grid-area: categoria;
+}
+
+.amountOf {
+  grid-area: amount;
+}
+
+.totalPrice {
+  grid-area: totalPrice;
+}
+
+.amountOf {
+  width: 100%;
+  height: 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.amountOf p {
+  grid-area: amount;
+  font-size: 2rem;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-facebook {
+  color: #00eeff;
+}
+
+.fa-twitter {
+  color: #00eeff;
+}
+
+.fa-instagram {
+  color: #00eeff;
+}
+
+.fa-google {
+  color: #00eeff;
+}
+
+.fa:hover {
+  font-size: 20px;
+  color: white;
+}
+
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.shopping-cart {
+  margin: 10px auto;
+  background: #ffcbcb;
+  box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: wrap;
+}
+
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 115px;
+}
+
+.description span {
+  display: block;
+  font-size: 14px;
+  color: #43484D;
+  font-weight: 400;
+}
+
+.description span:first-child {
+  margin-bottom: 5px;
+}
+
+.description span:last-child {
+  font-weight: 300;
+  margin-top: 8px;
+  color: #86939E;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+
+button[class*=btn] {
+  width: 30px;
+  height: 30px;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+.total-price {
+  width: 83px;
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 300;
+}
+
+#addProductButton {
+  background: url("../assets/baseline_note_add_white_48dp.png") no-repeat center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 5rem;
+  text-decoration: none;
+  background-size: cover;
+  display: block;
+}
+
+#addProducts {
+  display: none;
+  justify-content: center;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  font: 1.4em "Unkempt", sans-serif;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+#addProducts input[type=number]::-webkit-inner-spin-button,
+#addProducts input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#addProducts input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.wrapper {
+  position: absolute;
+  overflow: auto;
+  border: 1px solid #888;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  background: url("https://img.freepik.com/vector-gratis/fondo-abstracto-azul-formas-geometricas_1035-17545.jpg?size=626&ext=jpg") no-repeat;
+  background-size: cover;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.wrapper h1 {
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+}
+
+.form-row > label {
+  padding: 0.5em 1em 0.5em 0;
+  flex: 1;
+}
+
+.form-row > input {
+  flex: 2;
+}
+
+.form-row > select {
+  flex: 2;
+}
+
+.form-row > textarea {
+  flex: 2;
+}
+
+.form-row > input,
+.form-row > button {
+  padding: 0.5em;
+}
+
+.form-row > button {
+  background: #2c2c2c;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.form-row > button:hover, button:focus {
+  background: #6eff5b;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=style.css.map */
