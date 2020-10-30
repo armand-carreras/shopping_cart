@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <title>Shopping cart</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+
+<div class="shopping-cart">
+
+  <div class="description">
+    <span>Camiseta</span>
+    <span>Desc</span>
+    <span>Price</span>
+  </div>
+  <div class="quantity">
+    <button class="minumQuantity disabled" type="button">-</button>
+    <input type="text" id="quantity" value="1"></input>
+    <button class="plusquantity" type="button">+</button>
+  </div>
+  <p class="total-price">
+    <span id="price">250</span>
+  </p>
+
+</div>
+
+
+
+  <template class="asideItem">
+    <div class="tarjetaAside">
+      <img src="">
+      <p class="itemName">nombre</p>
+      <p class="itemType">categoria</p>
+      <div class="quantity">
+        <button class="minumQuantity disabled"><span>-</span></button>
+        <p class="itemAmount" id="quantity">0</p>
+        <button class="plusquantity" ><span>+</span></button>
+      </div>
+      <div class="totalPrice" id="price"><p>Total: </p></div>
+    </div>
+    <div class="underlinebottom" ></div>
+  </template>
+ 
+
+
+  <template id="templateProducts">
+    <div class="card">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <!-- <img
+            src=""
+            alt=""
+            style="width: 100%"
+            /> -->
+            <h1 class="nombre"></h1>
+          </div>
+          <div class="flip-card-back">
+            <h1 class="nombre"></h1>
+            <p class="price">19.99€</p>
+            <p class="category"></p>
+            <p class="tags">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. ate
+              voluptatibus suscipit, voluptates reprehenderit architecto
+              reiciendis inventore sapiente!
+            </p>
+            <button class="addButton"><span>Add to Cart</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </template>
+
+  
+  <div id="cuerpo">
+    
+    <header>
+    <a id="addProductButton" href="#"></a><p>SHOPPING CART</p><a class="carrito" href="#"></a>
+    </header>
+    
+    <article class="cart"> 
+    </article>
+
+
+    <aside class="summary" id="carritocompra"> 
+    </aside>
+
+
+
+    <div id="addProducts">
+      <!-- <div class="container"> -->
+              <form class="form" name="inputProduct" id="formAddProduct" onsubmit="return formValidator()">
+
+                <ul class="wrapper">
+                  <span class="close">&times;</span>
+                  <h1> AÑADIR PRODUCTOS </h1>
+                  <li class="form-row">
+                    <label for="options">OPCIONES</label>
+                    <select id="productSelector">
+                      <option>--selecciona--</option>
+                    </select>
+                  </li>
+                  <li class="form-row">
+                    <label for="name">NOMBRE</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto">
+                  </li>
+                  <li class="form-row">
+                    <label for="category">CATEGORIA</label>
+                    <input type="text" id="category" name="category" placeholder="Categoria">
+                  </li>
+                  <li class="form-row">
+                    <label for="price">PRECIO</label>
+                    <input type="number" id="price" name="price" placeholder="Precio">
+                  </li>
+                  <li class="form-row">
+                    <label for="cantidad">CANTIDAD</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Cantidad">
+                  </li>
+                  <li class="form-row">
+                    <label for="msg">MENSAJE</label>
+                    <textarea rows="4" cols="50" name="tags" placeholder="Escribe tus tags separados por espacios."></textarea>
+                  </li>
+                  <li class="form-row">
+                    <label for="msg"></label>
+                    <input type="checkbox" id="checkbox">Haz check para activar item</label>
+                  </li>
+                  <li class="form-row">
+                    <button type="submit">Submit</button>
+                  </li>
+                </ul>
+              </form>
+            <!-- </div> -->
+    </div>
+
+
+
+    <!-- <div id="addProducts">
+      <div class="modal-content">
+        <div id=headerProducts>
+          <h1>HELPDESK AÑADIR PRODUCTOS <span class="close">&times;</span></h1>
+          <select id="productSelector"></select>
+        </div>
+          <main>
+              <form name="inputProduct" id="formAddProduct" onsubmit="return formValidator()">
+                  <input type="text" id="nombre" name="nombre">
+                  <input type="number" id="price" name="price">
+                  <input type="text" id="category" name="category">
+                  <input type="number" id="quantity" name="quantity">
+                  <textarea rows="4" cols="50" name="tags" placeholder="Escribe tus tags separados por espacios."></textarea>
+                  <label><input type="checkbox" id="checkbox">Haz check para activar item</label>
+                  <input type="submit" id="submit" value="Añadir Producto">
+              </form>
+          </main>
+        </div>
+    </div> -->
+
+    <footer class="icons">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-instagram"></a>
+      <a href="#" class="fa fa-google"></a>
+    </footer>
+     
+     
+  </div>
+
+  <script type="text/javascript" src="js/script.js"></script>
+    
+</body>
+</html>

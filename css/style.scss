@@ -1,0 +1,559 @@
+@charset "UTF-8";
+.cart::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.cart::-webkit-scrollbar-track {
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.cart::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(97, 97, 97)),
+									   color-stop(0.72, rgb(53, 53, 53)),
+									   color-stop(0.86, rgb(31, 31, 31)));
+}
+
+//**************************************************************//
+//*********************** STRUCTURE STYLE **********************//
+//**************************************************************//
+body{
+  margin:0;
+  padding:0;
+  justify-content: center;
+  align-items: center;
+}
+#cuerpo{ //layout de la pagina
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "HEAD HEAD" "CART SUMARY" "FOOT FOOT";
+  grid-template-rows: 1.5fr 8fr 1fr;
+  grid-template-columns: 4fr 1fr;
+  gap: 2rem;
+  background-image:url("../assets/peak-5645235_1920.jpg");
+}
+
+header{grid-area: HEAD;}
+.cart{grid-area: CART;}
+.sumary{grid-area:SUMARY;}
+footer{grid-area: FOOT;}
+
+.cart{ //disponemos las cajas en FLEX
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row ;
+  overflow: auto;
+  text-align: center;
+}
+
+.cart {
+  margin-left: 20px;
+  
+  }
+
+  .summary{
+    display: flex;
+    flex-direction: row;
+    flex-flow:wrap;
+    overflow-x: hidden;
+    margin-right: 10px;
+    border-radius: 10px;
+    transition: opacity 2s linear, max-height 0s linear 0s;
+    opacity: 1;
+    background: rgba(36, 36, 36, 0.7);
+    max-height:100%;
+    max-width:200px;
+    min-width:200px;
+    color:white;
+    border: 2px solid white;
+    box-shadow: 0px 0px 18px 0px rgba(54, 54, 54, 0.57);
+    box-shadow: 0px 0px 18px 0px rgba(12, 12, 12, 0.57);
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.57);
+    
+  }
+
+  .summary.hidden{
+    opacity: 0;
+    transition: opacity 2s linear, max-height 0s linear 2s;
+    max-width:200px;
+    min-width:200px;
+    overflow:hidden;
+
+  }
+
+  .underlinebottom{
+
+    border-bottom: 3px solid white;
+    width: 300px;
+  }
+
+  // .tarjetaAside{
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+
+  // }
+
+
+header,footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 238, 255);
+  background: rgba(40, 43, 52, 0.705);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  word-spacing: 1rem;
+  font-weight: 800;
+}
+
+header{
+  justify-content: space-around;
+  box-shadow: 0px 0px 12px #000000;
+  border: 2px solid #414758;
+  p{
+    margin: 0;
+    font-family: 'Bangers', cursive;
+    font-size: 5rem;
+    color: rgba(0, 238, 255, 0.2);
+    -webkit-text-stroke: 2px white
+  }
+  
+
+}
+
+.carrito{
+ 
+ text-decoration: none;
+ margin-left: 50px;
+ width: 4rem;
+ height: 4rem;
+ font-size: 5rem;
+ background: url("../assets/baseline_add_shopping_cart_white_48dp.png") no-repeat center;
+ background-size: cover;
+ display: block;
+}
+
+.carrito:hover{
+  margin-left: 50px;
+  font-size: 20px;
+  opacity: 0.8;
+ }
+// *************************************************************//
+//***************** CARTA DE PRODUCTO **************************//
+//**************************************************************//
+
+.card {
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  padding: 20px;
+  background: rgba(46, 46, 46, 0.50);
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-left:20px;
+
+}
+
+.price {
+  color: white;
+  font-size: 22px;
+}
+
+img{
+
+  border-radius: 8px;
+  border: 1px solid black;
+  min-height: 320px;
+  max-height: 320px;
+
+}
+
+.card button {
+  border-image: linear-gradient(#360154, #d442d5) 30;
+  background: #18d331;
+  box-shadow: 0px 0px 8px #59c444;
+  border-radius: 8px;
+  border: 2px solid;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+  transition: all 0.5s;
+
+}
+
+.card button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.card button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.card button:hover span {
+  padding-right: 25px;
+}
+
+.card button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+p{
+  padding:10px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+  border-radius: 20px;
+
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.flip-card-front {
+ 
+  color: transparent;
+}
+
+.flip-card-back {
+  box-shadow: 0px 0px 12px #000000;
+  border-radius: 8px;
+  border: 2px solid;
+  background-image: url("fondo.jpg");
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 15px;
+  overflow: hidden;
+
+}
+
+.tags{
+
+  font-size:10px;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+//******************************************************************//
+//******************** ETIQUETA ASIDE ******************************//
+//******************************************************************//
+
+.tarjetaAside{
+  width:100%;
+  height: 20%;
+  display:grid;
+  grid-template-areas: 
+  "img        nombre"
+  "img        categoria"
+  "img        amount"
+  "totalPrice totalPrice";
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
+  
+}
+img{grid-area: img;}
+.itemName{grid-area: nombre;}
+.itemType{grid-area: categoria;}
+.amountOf{grid-area: amount;}
+.totalPrice{grid-area: totalPrice;}
+
+.amountOf{
+  width: 100%;
+  height: 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+    p{
+      grid-area: amount;
+      font-size: 2rem;
+    }
+}
+
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-facebook {
+  color: rgb(0, 238, 255);
+ 
+}
+
+.fa-twitter {
+  color: rgb(0, 238, 255);
+}
+
+.fa-instagram {
+  color: rgb(0, 238, 255);
+}
+
+.fa-google {
+  color: rgb(0, 238, 255);
+}
+
+.fa:hover {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+
+
+.shopping-cart {
+ 
+  margin: 10px auto;
+  background: #ffcbcb;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+ 
+  display: flex;
+  flex-direction: wrap;
+}
+
+ 
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 115px;
+}
+ 
+.description span {
+  display: block;
+  font-size: 14px;
+  color: #43484D;
+  font-weight: 400;
+}
+ 
+.description span:first-child {
+  margin-bottom: 5px;
+}
+.description span:last-child {
+  font-weight: 300;
+  margin-top: 8px;
+  color: #86939E;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+ 
+button[class*=btn] {
+  width: 30px;
+  height: 30px;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus,
+input:focus {
+  outline:0;
+}
+
+.total-price {
+  width: 83px;
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 300;
+}
+
+
+//******************************************************************//
+//********************ADD PRODUCT********************//
+//******************************************************************//
+#addProductButton{
+  background: url("../assets/baseline_note_add_white_48dp.png") no-repeat center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 5rem;
+  text-decoration: none;
+  background-size: cover;
+  display: block;
+}
+
+#addProducts{
+  display: none;
+  justify-content: center;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  font: 1.4em 'Unkempt', sans-serif; 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+
+  input[type=number] { -moz-appearance:textfield; }
+} 
+
+// .container { 
+//   position: absolute;
+//   background-color: #fefefe;
+//   left: 10%;
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 80%; /* Could be more or less, depending on screen size */
+//   height: 50%;
+//   top: 10%;
+// }
+
+.wrapper {
+  position: absolute;
+  overflow: auto;
+  border: 1px solid #888;
+  width: 80%; 
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  background:url("https://img.freepik.com/vector-gratis/fondo-abstracto-azul-formas-geometricas_1035-17545.jpg?size=626&ext=jpg") no-repeat;
+  background-size: cover;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 5px;
+}
+.wrapper h1{
+
+  text-align: center;
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+.form-row > label {
+  padding: .5em 1em .5em 0;
+  flex: 1;
+}
+.form-row > input {
+  flex: 2;
+}
+
+.form-row > select {
+  flex: 2;
+}
+
+.form-row > textarea {
+  flex: 2;
+}
+.form-row > input,
+.form-row > button {
+  padding: .5em;
+}
+.form-row > button {
+ background: rgb(44, 44, 44);
+ color: white;
+ border-radius: 10px;
+ border:1px solid white;
+ 
+}
+
+.form-row > button:hover, button:focus {
+  background:  rgb(110, 255, 91);
+  border-radius: 10px;
+  cursor:pointer;
+  border:1px solid white;
+ }
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right:20px;
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
