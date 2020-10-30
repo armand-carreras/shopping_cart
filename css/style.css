@@ -42,7 +42,7 @@ header {
   grid-area: CART;
 }
 
-.sumary {
+.summary {
   grid-area: SUMARY;
 }
 
@@ -64,17 +64,15 @@ footer {
 
 .summary {
   display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  overflow-x: hidden;
-  margin-right: 10px;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin: 0;
   border-radius: 10px;
   transition: opacity 2s linear, max-height 0s linear 0s;
   opacity: 1;
   background: rgba(36, 36, 36, 0.7);
   max-height: 100%;
-  max-width: 200px;
-  min-width: 200px;
+  min-width: 20%;
   color: white;
   border: 2px solid white;
   box-shadow: 0px 0px 18px 0px rgba(54, 54, 54, 0.57);
@@ -88,11 +86,6 @@ footer {
   max-width: 200px;
   min-width: 200px;
   overflow: hidden;
-}
-
-.underlinebottom {
-  border-bottom: 3px solid white;
-  width: 300px;
 }
 
 header, footer {
@@ -259,11 +252,19 @@ p {
 /*# sourceMappingURL=style.css.map */
 .tarjetaAside {
   width: 100%;
-  height: 20%;
+  height: 150px;
   display: grid;
-  grid-template-areas: "img        nombre" "img        categoria" "img        amount" "totalPrice totalPrice";
+  margin: 0;
+  grid-template-areas: "img        nombre" "img        categoria" ".       amount" "totalPrice totalPrice";
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 3fr;
+}
+.tarjetaAside p {
+  margin: 0;
+}
+
+.id {
+  display: none;
 }
 
 img {
@@ -278,7 +279,7 @@ img {
   grid-area: categoria;
 }
 
-.amountOf {
+.quantity {
   grid-area: amount;
 }
 
@@ -286,7 +287,7 @@ img {
   grid-area: totalPrice;
 }
 
-.amountOf {
+.quantity {
   width: 100%;
   height: 2rem;
   margin: 0;
@@ -295,7 +296,8 @@ img {
   justify-content: center;
   align-items: center;
 }
-.amountOf p {
+.quantity p {
+  margin: 0;
   grid-area: amount;
   font-size: 2rem;
 }

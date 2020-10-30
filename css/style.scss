@@ -43,7 +43,7 @@ body{
 
 header{grid-area: HEAD;}
 .cart{grid-area: CART;}
-.sumary{grid-area:SUMARY;}
+.summary{grid-area:SUMARY;}
 footer{grid-area: FOOT;}
 
 .cart{ //disponemos las cajas en FLEX
@@ -61,17 +61,15 @@ footer{grid-area: FOOT;}
 
   .summary{
     display: flex;
-    flex-direction: row;
-    flex-flow:wrap;
-    overflow-x: hidden;
-    margin-right: 10px;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin: 0;
     border-radius: 10px;
     transition: opacity 2s linear, max-height 0s linear 0s;
     opacity: 1;
     background: rgba(36, 36, 36, 0.7);
-    max-height:100%;
-    max-width:200px;
-    min-width:200px;
+    max-height: 100%;
+    min-width: 20%;
     color:white;
     border: 2px solid white;
     box-shadow: 0px 0px 18px 0px rgba(54, 54, 54, 0.57);
@@ -88,19 +86,6 @@ footer{grid-area: FOOT;}
     overflow:hidden;
 
   }
-
-  .underlinebottom{
-
-    border-bottom: 3px solid white;
-    width: 300px;
-  }
-
-  // .tarjetaAside{
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-
-  // }
 
 
 header,footer{
@@ -286,24 +271,31 @@ p{
 
 .tarjetaAside{
   width:100%;
-  height: 20%;
+  height: 150px;
   display:grid;
+  margin: 0;
   grid-template-areas: 
   "img        nombre"
   "img        categoria"
-  "img        amount"
+  ".       amount"
   "totalPrice totalPrice";
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 3fr;
+  p{
+    margin: 0;
+  }
   
+}
+.id{
+  display: none;
 }
 img{grid-area: img;}
 .itemName{grid-area: nombre;}
 .itemType{grid-area: categoria;}
-.amountOf{grid-area: amount;}
+.quantity{grid-area: amount;}
 .totalPrice{grid-area: totalPrice;}
 
-.amountOf{
+.quantity{
   width: 100%;
   height: 2rem;
   margin: 0;
@@ -312,6 +304,7 @@ img{grid-area: img;}
   justify-content: center;
   align-items: center;
     p{
+      margin: 0;
       grid-area: amount;
       font-size: 2rem;
     }
