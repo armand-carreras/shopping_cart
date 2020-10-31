@@ -379,7 +379,7 @@ document.querySelectorAll('.addButton').forEach(item => {
       templateAside.content.querySelector('.itemName').textContent = cajaPadre.querySelector('.nombre').textContent;
       templateAside.content.querySelector('.itemType').textContent = cajaPadre.querySelector('.category').textContent;
       templateAside.content.querySelector('.itemAmount').textContent = 1;
-      templateAside.content.querySelector('.totalPrice').textContent = `Total: ${cajaPadre.querySelector('.price').textContent}`;
+      templateAside.content.querySelector('.totalPrice').textContent = `${cajaPadre.querySelector('.price').textContent}`;
       // imageAside.setAttribute('src', `${cajaPadre.querySelector('img').src}`);
       // templateAside.content.querySelector('.tarjetaAside').appendChild(imageAside);
       let clonAside = document.importNode(templateAside, true);
@@ -444,12 +444,13 @@ document.querySelector(".plusquantity").addEventListener("click", function() {
 
     if (valueCount > 1) {
         document.querySelector(".minumQuantity").removeAttribute("disabled");
-        document.querySelector(".minumQuantity").classList.remove("disabled")
+        document.querySelector(".minumQuantity").classList.remove("disabled");
     }
 
     if (valueCount == 10) {
-      document.querySelector(".plusquantity").setAttribute("disabled", "disabled")
+      document.querySelector(".plusquantity").setAttribute("disabled", "disabled");
   }
+
 
     priceTotal()
 })
@@ -549,6 +550,11 @@ document.getElementsByClassName("close")[0].addEventListener('click', event =>{
   let closeAddProducts = document.getElementById("addProducts");
   closeAddProducts.style.display = "none";
 })
+
+// document.getElementById("botoneliminar").addEventListener('click', event =>{
+//   let btnDel = document.getElementById("targetas");
+//   btnDel.style.display = "none";
+// })
 
 
 

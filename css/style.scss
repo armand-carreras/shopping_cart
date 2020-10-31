@@ -271,14 +271,15 @@ p{
 
 .tarjetaAside{
   width:100%;
-  height: 150px;
+  height: 200px;
   display:grid;
   margin: 0;
   grid-template-areas: 
   "img        nombre"
   "img        categoria"
-  ".       amount"
-  "totalPrice totalPrice";
+  "amount       amount"
+  "totalPrice totalPrice"
+  "btnDelete btnDelete";
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 3fr;
   p{
@@ -294,6 +295,7 @@ img{grid-area: img;}
 .itemType{grid-area: categoria;}
 .quantity{grid-area: amount;}
 .totalPrice{grid-area: totalPrice;}
+.btnDelete{grid-area: btnDelete;}
 
 .quantity{
   width: 100%;
@@ -310,6 +312,51 @@ img{grid-area: img;}
     }
 }
 
+
+.totalPrice{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top:5px;
+  
+}
+
+.underline{
+border-bottom:2px solid rgb(0, 0, 0);
+width:100%;
+
+}
+
+
+.btnDelete {
+  display: flex;
+  justify-content: center;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #fa6471 5%, #d10202 100%);
+	background-color:#fa6471;
+	border-radius:6px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+  text-shadow:0px -1px 0px #5b6178;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:50px;
+ 
+}
+.btnDelete:hover {
+	background:linear-gradient(to bottom, #d10202 5%, #fa6471 100%);
+	background-color:#d10202;
+}
+.btnDelete:active {
+	position:relative;
+	top:1px;
+}
 
 .fa {
   padding: 10px;
@@ -400,14 +447,6 @@ img{grid-area: img;}
   font-weight: 300;
 }
  
-button[class*=btn] {
-  width: 30px;
-  height: 30px;
-  background-color: #E1E8EE;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
 
 button:focus,
 input:focus {
@@ -434,10 +473,12 @@ input:focus {
   text-decoration: none;
   background-size: cover;
   display: block;
+ 
 }
 
 #addProducts{
   display: none;
+  
   justify-content: center;
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4);
@@ -449,7 +490,7 @@ input:focus {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   input[type=number]::-webkit-inner-spin-button, 
@@ -474,77 +515,114 @@ input:focus {
 
 .wrapper {
   position: absolute;
-  overflow: auto;
+  opacity: .9; 
+  overflow: hidden;
+  display:flex;
+  flex-wrap: wrap;
   border: 1px solid #888;
   width: 80%; 
-  height: 80%;
-  top: 10%;
+  height: 70%;
+  top: 5%;
   left: 10%;
   bottom: 10%;
-  background:url("https://img.freepik.com/vector-gratis/fondo-abstracto-azul-formas-geometricas_1035-17545.jpg?size=626&ext=jpg") no-repeat;
+  background:url("https://www.freecodecamp.org/news/content/images/2020/04/w-qjCHPZbeXCQ-unsplash.jpg") no-repeat;
   background-size: cover;
   list-style-type: none;
   padding: 0;
-  border-radius: 5px;
+  border-radius: 30px;
+  font-family: "Lucida Console", Courier, monospace;
 }
 .wrapper h1{
 
   text-align: center;
+  
 }
 
+.headerAdd{
+  background: rgb(0, 0, 0);
+  color: white;
+  width:100%;
+  height:150px;
+  opacity: .9; 
+}
+
+.headerAdd > h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerAdd
 
 .form-row {
   display: flex;
-  justify-content: flex-end;
-  padding: .5em;
+  justify-content: center;
+  align-items: center;
+  padding:0;
 }
 .form-row > label {
-  padding: .5em 1em .5em 0;
-  flex: 1;
+  padding-right: 5px;
+  margin-right:20px;
+  margin-left:20px;
+  flex: 0.3;
+  font-size:20px;
 }
 .form-row > input {
-  flex: 2;
+  flex: 0.4;
+  height:10px;
+  margin-right:10px;
+  margin-left:10px;
 }
 
 .form-row > select {
-  flex: 2;
+  flex: 0.2;
+  margin-right:10px;
+ 
 }
 
 .form-row > textarea {
-  flex: 2;
+  flex: 0.4;
 }
 .form-row > input,
-.form-row > button {
+.form-row > .botonSubmit {
   padding: .5em;
 }
-.form-row > button {
+.form-row > .botonSubmit {
  background: rgb(44, 44, 44);
  color: white;
  border-radius: 10px;
  border:1px solid white;
+ height:50px;
+ width:200px;
+ text-align: center;
+margin-bottom: 15px;
+margin-left:900px;
  
 }
 
-.form-row > button:hover, button:focus {
+.form-row > .botonSubmit:hover, .botonSubmit:focus {
   background:  rgb(110, 255, 91);
   border-radius: 10px;
   cursor:pointer;
   border:1px solid white;
  }
 
+
+
 .close {
-  color: #aaa;
+  color: rgb(255, 255, 255);
   font-size: 28px;
   font-weight: bold;
   margin-right:20px;
   display:flex;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: flex-end;
+  margin-left: 300px;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(255, 0, 0);
   text-decoration: none;
   cursor: pointer;
 }

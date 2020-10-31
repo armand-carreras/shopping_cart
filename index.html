@@ -13,29 +13,17 @@
 <body>
 
 
-
-<div class="shopping-cart">
-
-  <div class="description">
-    <span>Camiseta</span>
-    <span>Desc</span>
-    <span>Price</span>
-  </div>
-  <div class="quantity">
+  <div class="quantity" style="display:none">
     <button class="minumQuantity disabled" type="button">-</button>
-    <input type="text" id="quantity" value="1"></input>
+  
     <button class="plusquantity" type="button">+</button>
   </div>
-  <p class="total-price">
-    <span id="price">250</span>
-  </p>
-
-</div>
+  <div>
 
 
 
   <template class="asideItem">
-    <div class="tarjetaAside">
+    <div class="tarjetaAside" id="targetas">
       <img src="">
       <p class="id"></p>
       <p class="itemName">nombre</p>
@@ -46,9 +34,11 @@
         <button class="plusquantity" ><span>+</span></button>
       </div>
       <div class="totalPrice" id="price"><p>Total: </p></div>
+      <button href="#" class="btnDelete" id="botoneliminar">Delete</button>
     </div>
+   
   </template>
- 
+
 
 
   <template id="templateProducts">
@@ -85,7 +75,7 @@
   <div id="cuerpo">
     
     <header>
-    <a id="addProductButton" href="#"></a><p>SHOPPING CART</p><a class="carrito" href="#"></a>
+    <a id="addProductButton" href="#"></a><p>SHOPPING CART</p><a class="carrito" href="#" id="showSummary" onclick="hideSummary()"></a>
     </header>
     
     <article class="cart"> 
@@ -102,8 +92,11 @@
               <form class="form" name="inputProduct" id="formAddProduct" onsubmit="return formValidator()">
 
                 <ul class="wrapper">
-                  <span class="close">&times;</span>
+                  <div class="headerAdd">
+                    <span class="close">&times;</span>
                   <h1> AÑADIR PRODUCTOS </h1>
+                  
+                </div>
                   <li class="form-row">
                     <label for="options">OPCIONES</label>
                     <select id="productSelector">
@@ -128,14 +121,14 @@
                   </li>
                   <li class="form-row">
                     <label for="msg">MENSAJE</label>
-                    <textarea rows="4" cols="50" name="tags" placeholder="Escribe tus tags separados por espacios."></textarea>
+                    <textarea rows="3" cols="50" name="tags" placeholder="Escribe tus tags separados por espacios."></textarea>
                   </li>
                   <li class="form-row">
-                    <label for="msg"></label>
-                    <input type="checkbox" id="checkbox">Haz check para activar item</label>
+                    <label for="msg" class="textcheck"></label>
+                    <input type="checkbox" id="checkbox" class="check">Haz check para activar item</label>
                   </li>
                   <li class="form-row">
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="botonSubmit">Submit</button>
                   </li>
                 </ul>
               </form>

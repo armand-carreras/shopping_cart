@@ -475,7 +475,7 @@ input:focus {
   /* Full width */
   height: 100%;
   /* Full height */
-  overflow: hidden;
+  overflow: auto;
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
@@ -493,8 +493,7 @@ input:focus {
 
 .wrapper {
   position: absolute;
-  opacity: 0.9;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid #888;
@@ -507,8 +506,7 @@ input:focus {
   background-size: cover;
   list-style-type: none;
   padding: 0;
-  border-radius: 30px;
-  font-family: "Lucida Console", Courier, monospace;
+  border-radius: 5px;
 }
 
 .wrapper h1 {
@@ -518,46 +516,36 @@ input:focus {
 .headerAdd {
   background: black;
   color: white;
-  width: 100%;
-  height: 150px;
-  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
 }
 
-.headerAdd > h1 {
+.form-row {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.headerAdd .form-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
+  padding: 1.5em;
 }
 
 .form-row > label {
   padding-right: 5px;
   margin-right: 20px;
-  margin-left: 20px;
   flex: 0.3;
-  font-size: 20px;
 }
 
 .form-row > input {
   flex: 0.4;
   height: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .form-row > select {
   flex: 0.2;
-  margin-right: 10px;
+  height: 30px;
 }
 
 .form-row > textarea {
-  flex: 0.4;
+  flex: 0.6;
 }
 
 .form-row > input,
@@ -571,10 +559,10 @@ input:focus {
   border-radius: 10px;
   border: 1px solid white;
   height: 50px;
-  width: 200px;
   text-align: center;
-  margin-bottom: 15px;
-  margin-left: 900px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .form-row > .botonSubmit:hover, .botonSubmit:focus {
@@ -585,21 +573,20 @@ input:focus {
 }
 
 .close {
-  color: white;
+  color: #aaa;
   font-size: 28px;
   font-weight: bold;
   margin-right: 20px;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  margin-left: 300px;
+  align-items: flex-start;
 }
 
 .close:hover,
 .close:focus {
-  color: red;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css%C3%A7.map */
